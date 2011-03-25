@@ -4,7 +4,7 @@
 Plugin Name: Linkolo Linker
 Description: Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
 Author: Artur Pleskot
-Version: 1.1
+Version: 1.3
 Author URI: http://seopower.pl/
 */
 
@@ -12,19 +12,19 @@ $spwr_file_name_label = "spwr_file_name";
 add_filter("the_content", 'swpr_show_links', 9);
 add_action('admin_menu', 'linkolo_admin');
 
-function swpr_show_links() {
+function swpr_show_links($content) {
 
-	global $spwr_file_name_label, $post;
+	global $spwr_file_name_label;
 
 	$spwr_file = get_option($spwr_file_name_label);
 
 	if (is_singular() && is_file($spwr_file)) {
-		
-		require $spwr_file;
-		return spwrPrintArticle($post->post_content);
-		
-	} else return $post->post_content;
-	
+
+		require_once $spwr_file;
+		return spwrPrintArticle($content);
+
+	} else return $content;
+
 }
 
 function linkolo_admin() {
@@ -40,25 +40,25 @@ function linkolo_linker_options() {
 	$path_array = explode("/", dirname(__FILE__));
 	$count = count($path_array);
 	for	($i=array_search('wp-content', $path_array); $i <= $count; $i++) unset($path_array[$i]);
-	
+
 	$dirname = implode("/", $path_array);
-		
+
     if ($dh = opendir($dirname)) {
         while (($file = readdir($dh)) !== false) {
-        	
+
         	if (preg_match("/^cl_[0-9a-z]{16}\.php$/", $file)) $suggested_file = $file;
         	if (preg_match("/^cl_[0-9a-z]{16}$/", $file)) $suggested_folder = $file;
-        	
+
         }
         closedir($dh);
     }
-	
+
 	if (!current_user_can('manage_options'))  {
 		wp_die( __('Niestety. Nie masz odpowiednich uprawnień do edycji tej strony.') );
 	}
-	  
-	
-	
+
+
+
 	if (!empty($_POST[$spwr_file_name_label])) {
 	 	$spwr_file_name_val = $_POST[$spwr_file_name_label];
 		update_option($spwr_file_name_label, $spwr_file_name_val);
@@ -67,12 +67,12 @@ function linkolo_linker_options() {
 <?php
 
  	} else {
- 		
+
  		$spwr_file_name_val = get_option($spwr_file_name_label);
- 		
+
  	}
 
-  
+
 ?>
 
 <div class="wrap">
@@ -93,7 +93,7 @@ function linkolo_linker_options() {
 <?php if (!empty($suggested_file)) : ?>
 <input type="hidden" name="suggested_file" value="<?php echo $dirname.'/'.$suggested_file; ?>">
 <?php endif; ?>
-<p><?php _e("Ścieżka dostępu do pliku instalacyjnego Linkolo :", 'linkolo_linker_options'); ?> 
+<p><?php _e("Ścieżka dostępu do pliku instalacyjnego Linkolo :", 'linkolo_linker_options'); ?>
 <input type="text" name="<?php echo $spwr_file_name_label; ?>" value="<?php echo $spwr_file_name_val; ?>" size="100">
 </p><hr />
 
@@ -108,15 +108,15 @@ function linkolo_linker_options() {
 </div>
 <script type="text/javascript">
 	function insertfile(form) {
-		
+
 		form.<?php echo $spwr_file_name_label; ?>.value = form.suggested_file.value;
 		form.submit();
-		
+
 	}
 </script>
-	
-<?php 
-	
+
+<?php
+
 }
 
 ?>
