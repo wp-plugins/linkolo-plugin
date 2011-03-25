@@ -4,7 +4,7 @@
 Plugin Name: Linkolo Linker
 Description: Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
 Author: Artur Pleskot
-Version: 1.2.1
+Version: 1.3
 Author URI: http://seopower.pl/
 */
 
