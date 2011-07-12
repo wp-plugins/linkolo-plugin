@@ -2,18 +2,34 @@
 Contributors: Linkolo
 Tags: linkolo, giełda linków, sprzedaż linków, pozycjonowanie, seo
 Requires at least: 2.8
-Tested up to: 3.1
-Stable tag: 1.4
+Tested up to: 3.2
+Stable tag: 1.5
+
+Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. 
 
 Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na WordPress.
 
 == Description ==
 
-Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na WordPress.
+Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. 
+
+Linkolo.pl is a system that allows the owners of websites make money on the links in the content of the publication of articles on their sites.
+--------------------------------
+
+Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. 
 
 Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
 
 == Installation ==
+
+1. Upload files to folder wp-content/plugins
+2. Go to administration panel
+3. Click "Plugins"
+4. Find plugin name "Linkolo Linker" and change status to active.
+5. In menu "Settings" click "Linkolo Linker"
+6. System powinien znaleźć automatycznie pliki instalacyjne. Jeśli system dobrze znalazł pliki to wystarczy kliknąć przycisk "Użyj sugerowanego pliku". I to wszystko.
+7. If the suggested file is not found or is incorrectly found, you must specify the full path to the installation of the system.
+8. After entering the correct path to the installation file, click the button "Save changes".
 
 1. Wgrywamy plugin linkolo do folderu wp-content/plugins
 2. Wchodzimy do panelu administracyjnego bloga
@@ -29,6 +45,10 @@ Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publika
 Brak pytań i odpowiedzi (na razie)
 
 == Changelog ==
+
+= 1.5 =
+
+Dodana angielska wersja językowa
 
 = 1.4 =
 

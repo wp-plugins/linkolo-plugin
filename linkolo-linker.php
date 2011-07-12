@@ -2,15 +2,17 @@
 
 /*
 Plugin Name: Linkolo Linker
-Description: Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
+Description: Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. Linkolo.pl is a system that allows the owners of websites make money on the links in the content of the publication of articles on their sites.
+Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
 Author: Artur Pleskot
-Version: 1.4
+Version: 1.5
 Author URI: http://seopower.pl/
 */
 
 $spwr_file_name_label = "spwr_file_name";
 add_filter("the_content", 'swpr_show_links', 9);
 add_action('admin_menu', 'linkolo_admin');
+load_plugin_textdomain('linkolo-linker', false, basename( dirname( __FILE__ ) ) . '/languages' );
 
 function swpr_show_links($content) {
 
@@ -54,7 +56,7 @@ function linkolo_linker_options() {
     }
 	
 	if (!current_user_can('manage_options'))  {
-		wp_die( __('Niestety. Nie masz odpowiednich uprawnień do edycji tej strony.') );
+		wp_die( __('Sorry. You don\'t have privileges to edit this page.', 'linkolo-linker') );
 	}
 	  
 	
@@ -63,7 +65,7 @@ function linkolo_linker_options() {
 	 	$spwr_file_name_val = $_POST[$spwr_file_name_label];
 		update_option($spwr_file_name_label, $spwr_file_name_val);
 ?>
-<div class="updated"><p><strong><?php _e('Zmiany zostały zapisane', 'linkolo_linker_options' ); ?></strong></p></div>
+<div class="updated"><p><strong><?php _e('Changes are saved', 'linkolo-linker' ); ?></strong></p></div>
 <?php
 
  	} else {
@@ -76,30 +78,30 @@ function linkolo_linker_options() {
 ?>
 
 <div class="wrap">
-<h2><?php _e('Linkolo Linker Options', 'linkolo_linker_options') ?></h2>
+<h2><?php _e('Linkolo Linker Options', 'linkolo-linker') ?></h2>
 <?php if (!empty($suggested_file)) : ?>
 <p>
-	W folderze<br /><br />
+	<?php _e('In folder', 'linkolo-linker'); ?><br /><br />
 	<strong><?php echo $dirname; ?></strong><br /><br />
-	Znaleźliśmy plik<br /><br />
+	<?php _e('we found file', 'linkolo-linker'); ?><br /><br />
 	<strong><?php echo $suggested_file; ?></strong>.<br /><br />
-	Prawdopodobnie jest to twój plik instalacyjny. <br /><br />
-	Pamiętaj też, że folder z plikami danych musi mieć ustawione odpowiednie uprawnienia do zapisu (np. chmod 777).
+	<?php _e('This is probably your setup file', 'linkolo-linker'); ?>. <br /><br />
+	<?php _e('Remember the folder with data files must have write permissions (eg chmod 777)', 'linkolo-linker'); ?>.
 </p>
 <?php endif; ?>
 <form name="linkolo-form" method="post" action="">
 <?php if (!empty($suggested_file)) : ?>
 <input type="hidden" name="suggested_file" value="<?php echo $dirname.'/'.$suggested_file; ?>">
 <?php endif; ?>
-<p><?php _e("Ścieżka dostępu do pliku instalacyjnego Linkolo :", 'linkolo_linker_options'); ?> 
+<p><?php _e("Path to Linkolo installation files :", 'linkolo-linker'); ?> 
 <input type="text" name="<?php echo $spwr_file_name_label; ?>" value="<?php echo $spwr_file_name_val; ?>" size="100">
 </p><hr />
 
 <p class="submit">
 <?php if (!empty($suggested_file)) : ?>
-<input type="button" onclick="insertfile(this.form)" class="button-primary" value="Użyj sugerowanego pliku" />
+<input type="button" onclick="insertfile(this.form)" class="button-primary" value="<?php _e('Use suggested file', 'linkolo-linker'); ?>" />
 <?php endif; ?>
-<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
+<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes', 'linkolo-linker') ?>" />
 </p>
 
 </form>
