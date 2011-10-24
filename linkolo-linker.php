@@ -5,7 +5,7 @@
   Description: Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. Linkolo.pl is a system that allows the owners of websites make money on the links in the content of the publication of articles on their sites.
   Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
   Author: Artur Pleskot
-  Version: 1.5
+  Version: 2.1
   Author URI: http://seopower.pl/
  */
 

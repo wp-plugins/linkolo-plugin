@@ -3,7 +3,7 @@ Contributors: Linkolo
 Tags: linkolo, giełda linków, sprzedaż linków, pozycjonowanie, seo, kupno linków, pozycjonowanie, earn money, link sales
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 2.0
+Stable tag: 2.1
 
 Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. 
 
