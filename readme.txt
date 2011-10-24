@@ -40,10 +40,14 @@ Brak pytań i odpowiedzi (na razie)
 
 == Changelog ==
 
-= 2.0 =
+= 2.1 =
 
 Dodana obsługa linków w boksach (widget).
 Usprawniona instalacja. System automatycznie wykrywa i zapisuje ścieżkę do plików systemu Linkolo.pl
+
+= 2.0 = 
+
+Czarna dziura, bo SVN się zbuntował
 
 = 1.5 =
 
