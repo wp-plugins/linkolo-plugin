@@ -1,122 +1,25 @@
 <?php
 
 /*
-Plugin Name: Linkolo Linker
-Description: Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. Linkolo.pl is a system that allows the owners of websites make money on the links in the content of the publication of articles on their sites.
-Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
-Author: Artur Pleskot
-Version: 1.5
-Author URI: http://seopower.pl/
-*/
+  Plugin Name: Linkolo Linker
+  Description: Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. Linkolo.pl is a system that allows the owners of websites make money on the links in the content of the publication of articles on their sites.
+  Plugin pozwala na szybką integrację systemu Linkolo.pl z blogiem opartym na Wordpress. Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publikacji linków w treści artykułów na ich stronach.
+  Author: Artur Pleskot
+  Version: 2.3
+  Author URI: http://seopower.pl/
+ */
 
-$spwr_file_name_label = "spwr_file_name";
+define('SPWR_PLUGIN_DIR', dirname(__FILE__) . '/');
+define('SPWR_FILE_NAME_LABEL', 'spwr_file_name');
+
 add_filter("the_content", 'swpr_show_links', 9);
 add_action('admin_menu', 'linkolo_admin');
-load_plugin_textdomain('linkolo-linker', false, basename( dirname( __FILE__ ) ) . '/languages' );
+load_plugin_textdomain('linkolo-linker', false, basename(dirname(__FILE__)) . '/languages');
 
-function swpr_show_links($content) {
+require_once SPWR_PLUGIN_DIR . 'functions.php';
+require_once SPWR_PLUGIN_DIR . 'widget.php';
+add_action('widgets_init', create_function('', 'register_widget("Linkolo_widget");'));
 
-	global $spwr_file_name_label;
-
-	$spwr_file = get_option($spwr_file_name_label);
-
-	if (is_singular() && is_file($spwr_file)) {
-		
-		require_once $spwr_file;
-		return spwrPrintArticle($content);
-		
-	} else return $content;
-	
-}
-
-function linkolo_admin() {
-
-	add_options_page('Linkolo Linker Options', 'Linkolo Linker', 'manage_options', 'my-unique-identifier', 'linkolo_linker_options');
-
-}
-
-function linkolo_linker_options() {
-
-	global $spwr_file_name_label;
-
-	$path_array = explode("/", dirname(__FILE__));
-	$count = count($path_array);
-	for	($i=array_search('wp-content', $path_array); $i <= $count; $i++) unset($path_array[$i]);
-	
-	$dirname = implode("/", $path_array);
-		
-    if ($dh = opendir($dirname)) {
-        while (($file = readdir($dh)) !== false) {
-        	
-        	if (preg_match("/^cl_[0-9a-z]{16}\.php$/", $file)) $suggested_file = $file;
-        	if (preg_match("/^cl_[0-9a-z]{16}$/", $file)) $suggested_folder = $file;
-        	
-        }
-        closedir($dh);
-    }
-	
-	if (!current_user_can('manage_options'))  {
-		wp_die( __('Sorry. You don\'t have privileges to edit this page.', 'linkolo-linker') );
-	}
-	  
-	
-	
-	if (!empty($_POST[$spwr_file_name_label])) {
-	 	$spwr_file_name_val = $_POST[$spwr_file_name_label];
-		update_option($spwr_file_name_label, $spwr_file_name_val);
-?>
-<div class="updated"><p><strong><?php _e('Changes are saved', 'linkolo-linker' ); ?></strong></p></div>
-<?php
-
- 	} else {
- 		
- 		$spwr_file_name_val = get_option($spwr_file_name_label);
- 		
- 	}
-
-  
-?>
-
-<div class="wrap">
-<h2><?php _e('Linkolo Linker Options', 'linkolo-linker') ?></h2>
-<?php if (!empty($suggested_file)) : ?>
-<p>
-	<?php _e('In folder', 'linkolo-linker'); ?><br /><br />
-	<strong><?php echo $dirname; ?></strong><br /><br />
-	<?php _e('we found file', 'linkolo-linker'); ?><br /><br />
-	<strong><?php echo $suggested_file; ?></strong>.<br /><br />
-	<?php _e('This is probably your setup file', 'linkolo-linker'); ?>. <br /><br />
-	<?php _e('Remember the folder with data files must have write permissions (eg chmod 777)', 'linkolo-linker'); ?>.
-</p>
-<?php endif; ?>
-<form name="linkolo-form" method="post" action="">
-<?php if (!empty($suggested_file)) : ?>
-<input type="hidden" name="suggested_file" value="<?php echo $dirname.'/'.$suggested_file; ?>">
-<?php endif; ?>
-<p><?php _e("Path to Linkolo installation files :", 'linkolo-linker'); ?> 
-<input type="text" name="<?php echo $spwr_file_name_label; ?>" value="<?php echo $spwr_file_name_val; ?>" size="100">
-</p><hr />
-
-<p class="submit">
-<?php if (!empty($suggested_file)) : ?>
-<input type="button" onclick="insertfile(this.form)" class="button-primary" value="<?php _e('Use suggested file', 'linkolo-linker'); ?>" />
-<?php endif; ?>
-<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save Changes', 'linkolo-linker') ?>" />
-</p>
-
-</form>
-</div>
-<script type="text/javascript">
-	function insertfile(form) {
-		
-		form.<?php echo $spwr_file_name_label; ?>.value = form.suggested_file.value;
-		form.submit();
-		
-	}
-</script>
-	
-<?php 
-	
-}
+register_activation_hook(__FILE__, 'linkolo_activate');
 
 ?>

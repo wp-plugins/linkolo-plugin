@@ -1,9 +1,9 @@
 === Plugin Name ===
 Contributors: Linkolo
-Tags: linkolo, giełda linków, sprzedaż linków, pozycjonowanie, seo
-Requires at least: 2.8
-Tested up to: 3.2
-Stable tag: 1.5
+Tags: linkolo, giełda linków, sprzedaż linków, pozycjonowanie, seo, kupno linków, pozycjonowanie, earn money, link sales
+Requires at least: 3.0
+Tested up to: 3.2.1
+Stable tag: 2.3
 
 Plugin allows for quick system integration Linkolo.pl with a blog based on Wordpress. 
 
@@ -22,29 +22,40 @@ Linkolo.pl jest systemem pozwalającym właścicielom stron zarabiać na publika
 
 == Installation ==
 
-1. Upload files to folder wp-content/plugins
-2. Go to administration panel
-3. Click "Plugins"
-4. Find plugin name "Linkolo Linker" and change status to active.
-5. In menu "Settings" click "Linkolo Linker"
-6. System powinien znaleźć automatycznie pliki instalacyjne. Jeśli system dobrze znalazł pliki to wystarczy kliknąć przycisk "Użyj sugerowanego pliku". I to wszystko.
-7. If the suggested file is not found or is incorrectly found, you must specify the full path to the installation of the system.
-8. After entering the correct path to the installation file, click the button "Save changes".
+1. Before installation this plugin, you must upload Linkolo installation files into your Wordpress root directory.
+2. Upload files to folder wp-content/plugins
+3. Go to administration panel
+4. Click "Plugins"
+5. Find plugin name "Linkolo Linker" and change status to active.
 
-1. Wgrywamy plugin linkolo do folderu wp-content/plugins
-2. Wchodzimy do panelu administracyjnego bloga
-3. Klikamy menu "Wtyczki".
-4. Szukamy wsród wyłączonych pluginów pluginu o nazwie Linkolo Linker i aktywujemy go klikając obok odnosnik "Aktywuj"
-5. W menu "Ustawienia" klikamy odnośnik "Linkolo Linker".
-6. System powinien znaleźć automatycznie pliki instalacyjne o czym nas poinformuje. Jeśli system dobrze znalazł pliki to wystarczy kliknąć przycisk "Użyj sugerowanego pliku". I to wszystko.
-7. Jeśli sugerowany plik nie został odnaleziony lub jest błędnie odnaleziony, należy podać pełną ścieżkę dostępu do pliku instalacyjnego systemu.
-8. Po podaniu poprawnej ścieżki dostępu do pliku instalacyjnego klikamy przycisk "Zapisz zmiany".
+1. Przed instalacją tego pluginu musisz najpierw wgrać skrypty instalacyjne systemu Linkolo do folderu głównego twojego Wordpressa.
+2. Wgrywasz plugin linkolo do folderu wp-content/plugins
+3. Wchodzisz do panelu administracyjnego bloga
+4. Klikasz menu "Wtyczki".
+5. Szukasz wsród wyłączonych pluginów pluginu o nazwie Linkolo Linker i aktywujesz go klikając obok odnosnik "Aktywuj"
 
 == Frequently Asked Questions ==
 
 Brak pytań i odpowiedzi (na razie)
 
 == Changelog ==
+
+= 2.3 =
+
+Kolejne problemy z svn
+
+= 2.2 =
+
+Zmiana tylko numeracji, bo po update do 2.1 wordpress.org nie chciał specjalnie tego zaktualizować :/
+
+= 2.1 =
+
+Dodana obsługa linków w boksach (widget).
+Usprawniona instalacja. System automatycznie wykrywa i zapisuje ścieżkę do plików systemu Linkolo.pl
+
+= 2.0 = 
+
+Czarna dziura, bo SVN się zbuntował
 
 = 1.5 =
 
