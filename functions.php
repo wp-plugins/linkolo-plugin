@@ -1,5 +1,5 @@
 <?php
-
+  
 function swpr_show_links($content) {
 
 	$spwr_file = get_option(SPWR_FILE_NAME_LABEL);

@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Linkolo Linker\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-24 15:03+0100\n"
+"PO-Revision-Date: 2011-10-24 15:03+0100\n"
+"Last-Translator: Artur Pleskot <apleskot@seopower.pl>\n"
+"Language-Team: Seo Power <info@seopower.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../functions.php:55
+msgid "We could not find scripts Linkolo on your server. Properly upload our files to the root of Wordpress, and try to re-activate the plugin"
+msgstr "Nie znaleźliśmy skryptów Linkolo na twoim serwerze. Wgraj poprawnie nasze pliki do folderu głównego Wordpressa i spróbuj ponownie aktywować plugin"
+
+#: ../functions.php:80
+msgid "Sorry. You don't have privileges to edit this page."
+msgstr "Przykro nam. Nie masz uprawnień do oglądania tej strony"
+
+#: ../functions.php:89
+msgid "Changes are saved"
+msgstr "Zmiany zostały zapisane"
+
+#: ../functions.php:102
+msgid "Linkolo Linker Options"
+msgstr "Opcje pluginu Linkolo Linker"
+
+#: ../functions.php:105
+msgid "In folder"
+msgstr "W folderze"
+
+#: ../functions.php:107
+msgid "we found file"
+msgstr "znaleźliśmy plik"
+
+#: ../functions.php:109
+msgid "This is probably your setup file"
+msgstr "To jest prawdopodobnie twój skrypt systemu Linkolo.pl"
+
+#: ../functions.php:110
+msgid "Remember the folder with data files must have write permissions (eg chmod 777)"
+msgstr "Pamiętaj, że folder z danymi musi mieć odpowiednie prawa do zapisu (np. chcmod 777)"
+
+#: ../functions.php:117
+msgid "Path to Linkolo installation files :"
+msgstr "Ścieżka do plików instalacyjnych Linkolo.pl"
+
+#: ../functions.php:123
+msgid "Use suggested file"
+msgstr "Użyj sugerowanego pliku"
+
+#: ../functions.php:125
+msgid "Save Changes"
+msgstr "Zapisz zmiany"
+
+#: ../widget.php:45
+msgid "Good links"
+msgstr "Dobre linki"
+
+#: ../widget.php:46
+msgid "<br />"
+msgstr "<br />"
+
+#: ../widget.php:47
+msgid "links"
+msgstr "links"
+
+#: ../widget.php:51
+msgid "Title:"
+msgstr "Tytuł:"
+
+#: ../widget.php:55
+msgid "Links separator:"
+msgstr "Separator linków:"
+
+#: ../widget.php:59
+msgid "Css classname of box with links:"
+msgstr "Klasa Css boxa z linkami Linkolo.pl"
+
