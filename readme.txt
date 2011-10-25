@@ -42,20 +42,8 @@ Brak pytań i odpowiedzi (na razie)
 
 = 2.3 =
 
-Kolejne problemy z svn
-
-= 2.2 =
-
-Zmiana tylko numeracji, bo po update do 2.1 wordpress.org nie chciał specjalnie tego zaktualizować :/
-
-= 2.1 =
-
 Dodana obsługa linków w boksach (widget).
 Usprawniona instalacja. System automatycznie wykrywa i zapisuje ścieżkę do plików systemu Linkolo.pl
-
-= 2.0 = 
-
-Czarna dziura, bo SVN się zbuntował
 
 = 1.5 =
 
