@@ -22,7 +22,7 @@ class Linkolo_widget extends WP_Widget {
             if ($title)
                 echo $before_title . $title . $after_title;
 
-            echo '<div class="'.$instance['classname'].'">'.$links.'</p>';
+            echo '<div class="'.$instance['classname'].'">'.$links.'</div>';
             
             echo $after_widget;
         }
