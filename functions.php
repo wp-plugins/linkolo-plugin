@@ -42,7 +42,8 @@ function linkolo_activate() {
         unset($path_array[$i]);
 
     $dirname = implode("/", $path_array);
-
+    if (empty($dirname)) $dirname='/';
+    
     if (($dh = opendir($dirname))) {
         while (($file = readdir($dh)) !== false) {
 
